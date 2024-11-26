@@ -26,7 +26,7 @@ server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 server.post('/ITC-505/LAB-7', (req, res) => {
     const { noun, verb, adjective, adverb, pluralNoun, object } = req.body;
 
-    if (!noun || !verb || !adjective || !adverb || !pluralNoun || !object) {
+    if (!noun || !verb || !adjective || !adverb || !pluralNoun) {
         res.send(`
             <h1>Submission Failed</h1>
             <p>Please fill out ALL fields.</p>
@@ -37,7 +37,7 @@ server.post('/ITC-505/LAB-7', (req, res) => {
 
     const madLib = `
         In a ${adjective} galaxy far beyond, a brave ${noun} embarked on a mission to ${verb} ${adverb}.
-        During their journey, they encountered a mysterious ${object} floating in the void,
+        During their journey, they encountered a mysterious floating in the void,
         containing ${pluralNoun} that unlocked the secrets of the universe!
     `;
 
