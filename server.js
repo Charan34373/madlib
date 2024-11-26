@@ -26,7 +26,8 @@ server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 server.post('/ITC-505/LAB-7', (req, res) => {
     const { noun, verb, adjective, adverb, pluralNoun, object } = req.body;
 
-    if (!noun || !verb || !adjective || !adverb || !pluralNoun) {
+    // Validate if all fields are filled
+    if (!noun || !verb || !adjective || !adverb || !pluralNoun || !object) {
         res.send(`
             <h1>Submission Failed</h1>
             <p>Please fill out ALL fields.</p>
@@ -35,15 +36,17 @@ server.post('/ITC-505/LAB-7', (req, res) => {
         return;
     }
 
+    // Generate the mad lib story
     const madLib = `
         In a ${adjective} galaxy far beyond, a brave ${noun} embarked on a mission to ${verb} ${adverb}.
-        During their journey, they encountered a mysterious floating in the void,
+        During their journey, they encountered a mysterious ${object} floating in the void,
         containing ${pluralNoun} that unlocked the secrets of the universe!
     `;
 
+    // Return the mad lib story as HTML
     res.send(`
         <h1>Mad Lib Story</h1>
         <p>${madLib}</p>
-        <a href="/ITC-505/LAB-7/index.html">Space adventure Mad Lib story</a>
+        <a href="/ITC-505/LAB-7/index.html">Create Another Space Adventure Mad Lib story</a>
     `);
 });
