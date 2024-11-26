@@ -6,17 +6,9 @@ const server = express();
 server.use(express.urlencoded({ extended: true }));
 server.use(logger('dev'));
 
-// Route to generate a random space fact
-server.get('/space_fact', (req, res) => {
-    const facts = [
-        "A day on Venus is longer than a year on Venus!",
-        "Jupiter has over 80 moons!",
-        "Mars has the largest volcano in the solar system.",
-        "The Sun accounts for 99.86% of the mass in the solar system.",
-        "Neutron stars can spin 600 times per second!"
-    ];
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
-    res.send(`Did you know? ${randomFact}`);
+// Route to generate a random number
+server.get('/do_a_random', (req, res) => {
+    res.send(`Your number is: ${Math.floor(Math.random() * 100) + 1}`);
 });
 
 // Serve static files from "public" folder
@@ -28,29 +20,30 @@ let port = 80;
 if (process.argv[2] === 'local') {
     port = 8080;
 }
-server.listen(port, () => console.log(`Space Adventure server ready on localhost:${port}!`));
+server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 
-// Space Adventure Mad Lib form submission handler
-server.post('/space-adventure/game', (req, res) => {
-    const { planet, alienName, spaceVehicle, emotion, cosmicItem } = req.body;
+// Mad Lib form submission handler
+server.post('/ITC505/lab-7', (req, res) => {
+    const { noun, verb, adjective, adverb, pluralNoun, object } = req.body;
 
-    if (!planet || !alienName || !spaceVehicle || !emotion || !cosmicItem) {
+    if (!noun || !verb || !adjective || !adverb || !pluralNoun || !object) {
         res.send(`
-            <h1>Mission Failed</h1>
-            <p>It seems you forgot to fill out some critical mission details.</p>
-            <a href="/space-adventure/index.html">Go Back to Form</a>
+            <h1>Submission Failed</h1>
+            <p>Please fill out ALL fields.</p>
+            <a href="/ITC505/lab-7/index.html">Go Back to Form</a>
         `);
         return;
     }
 
     const madLib = `
-        On a distant journey to ${planet}, Captain ${alienName} boarded their ${spaceVehicle} filled with ${emotion}.
-        Along the way, they discovered a rare ${cosmicItem}, which became the key to saving their galaxy!
+        In a ${adjective} galaxy far beyond, a brave ${noun} embarked on a mission to ${verb} ${adverb}.
+        During their journey, they encountered a mysterious ${object} floating in the void,
+        containing ${pluralNoun} that unlocked the secrets of the universe!
     `;
 
     res.send(`
-        <h1>Space Adventure Story</h1>
+        <h1>Mad Lib Story</h1>
         <p>${madLib}</p>
-        <a href="ITC-505/LAB-7/index.html">Create Another Space Adventure</a>
+        <a href="/ITC505/lab-7/index.html">Space adventure Mad Lib story</a>
     `);
 });
