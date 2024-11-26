@@ -6,14 +6,14 @@ const server = express();
 server.use(express.urlencoded({ extended: true }));
 server.use(logger('dev'));
 
+// Serve static files from "public" folder
+const publicServedFilesPath = path.join(__dirname, 'public');
+server.use(express.static(publicServedFilesPath));
+
 // Route to generate a random number
 server.get('/do_a_random', (req, res) => {
     res.send(`Your number is: ${Math.floor(Math.random() * 100) + 1}`);
 });
-
-// Serve static files from "public" folder
-const publicServedFilesPath = path.join(__dirname, 'public');
-server.use(express.static(publicServedFilesPath));
 
 // Port setup
 let port = 80;
@@ -24,10 +24,10 @@ server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 
 // Mad Lib form submission handler
 server.post('/ITC-505/LAB-7', (req, res) => {
-    const { noun, verb, adjective, adverb, pluralNoun, object } = req.body;
+    const { noun, verb, adjective, adverb, pluralNoun } = req.body;
 
     // Validate if all fields are filled
-    if (!noun || !verb || !adjective || !adverb || !pluralNoun || !object) {
+    if (!noun || !verb || !adjective || !adverb || !pluralNoun) {
         res.send(`
             <h1>Submission Failed</h1>
             <p>Please fill out ALL fields.</p>
@@ -39,7 +39,7 @@ server.post('/ITC-505/LAB-7', (req, res) => {
     // Generate the mad lib story
     const madLib = `
         In a ${adjective} galaxy far beyond, a brave ${noun} embarked on a mission to ${verb} ${adverb}.
-        During their journey, they encountered a mysterious ${object} floating in the void,
+        During their journey, they encountered a mysterious ${pluralNoun} floating in the void,
         containing ${pluralNoun} that unlocked the secrets of the universe!
     `;
 
