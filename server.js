@@ -25,7 +25,7 @@ server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 // Mad Lib form submission handler
 server.post('/ITC505/lab-7', (req, res) => {
     const { noun, verb, adjective, adverb, pluralNoun } = req.body;
-
+    console.log(req.body);
     // Validate if all fields are filled
     if (!noun || !verb || !adjective || !adverb || !pluralNoun) {
         res.send(`
