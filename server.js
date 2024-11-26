@@ -23,14 +23,14 @@ if (process.argv[2] === 'local') {
 server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 
 // Mad Lib form submission handler
-server.post('/ITC505/lab-7', (req, res) => {
+server.post('/ITC-505/LAB-7', (req, res) => {
     const { noun, verb, adjective, adverb, pluralNoun, object } = req.body;
 
     if (!noun || !verb || !adjective || !adverb || !pluralNoun || !object) {
         res.send(`
             <h1>Submission Failed</h1>
             <p>Please fill out ALL fields.</p>
-            <a href="/ITC505/lab-7/index.html">Go Back to Form</a>
+            <a href="/ITC-505/LAB-7/index.html">Go Back to Form</a>
         `);
         return;
     }
@@ -44,6 +44,6 @@ server.post('/ITC505/lab-7', (req, res) => {
     res.send(`
         <h1>Mad Lib Story</h1>
         <p>${madLib}</p>
-        <a href="/ITC505/lab-7/index.html">Space adventure Mad Lib story</a>
+        <a href="/ITC-505/LAB-7/index.html">Space adventure Mad Lib story</a>
     `);
 });
