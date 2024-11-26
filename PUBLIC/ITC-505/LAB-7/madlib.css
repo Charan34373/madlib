@@ -1,0 +1,97 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun and playful font */
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* Cosmic gradient */
+    color: #f4f4f9; /* Light text color for contrast */
+}
+
+h1 {
+    text-align: center;
+    color: #f9ed69;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ff7e5f; /* Bright underline effect */
+    padding-bottom: 10px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Bold text shadow */
+}
+
+form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    background: radial-gradient(circle, #3b3a4f, #1f1e2e); /* Space-like gradient */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+    border-radius: 15px;
+}
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: bold;
+    color: #ffdf91; /* Golden text color */
+    font-size: 1.1rem;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #1c1c2c; /* Dark background for inputs */
+    color: #ffffff; /* Light text for contrast */
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff7e5f;
+    box-shadow: 0 0 10px 3px rgba(255, 126, 95, 0.7); /* Cosmic glow effect */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background-color: #ff7e5f; /* Vibrant orange-pink */
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0px 5px 15px rgba(255, 126, 95, 0.4); /* Glowing button shadow */
+}
+
+button:hover {
+    background-color: #d65a3e;
+    transform: scale(1.08); /* Dynamic scaling */
+}
+
+button:active {
+    background-color: #b94b33; /* Slightly darker on click */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); /* Compressed shadow on press */
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #f4f4f9;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-top: 1px solid #4a4a6a;
+}
+
+footer a {
+    color: #ffdf91; /* Golden link color */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
