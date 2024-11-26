@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Adventure Mad Lib</title>
+    <link rel="stylesheet" href="lab7.css">
+</head>
+<body>
+    <h1>Space Adventure Story</h1>
+    <form method="POST" action="/ITC505/lab-7">
+        <label for="planet">Name of a Planet:</label>
+        <input type="text" id="planet" name="planet" required><br>
+
+        <label for="alienName">Alien Name:</label>
+        <input type="text" id="alienName" name="alienName" required><br>
+
+        <label for="spaceVehicle">Type of Space Vehicle:</label>
+        <input type="text" id="spaceVehicle" name="spaceVehicle" required><br>
+
+        <label for="emotion">Emotion:</label>
+        <input type="text" id="emotion" name="emotion" required><br>
+
+        <label for="cosmicItem">Name of a Cosmic Item:</label>
+        <input type="text" id="cosmicItem" name="cosmicItem" required><br>
+
+        <button type="submit">Blast Off!</button>
+    </form>
+    <footer>
+        <p>Last updated: 
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        const lastModified = document.lastModified;
+        document.getElementById('lastModified').textContent = lastModified;
+    </script>
+</body>
+</html>
