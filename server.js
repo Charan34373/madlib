@@ -24,10 +24,10 @@ server.listen(port, () => console.log(`Ready on localhost:${port}!`));
 
 // Mad Lib form submission handler
 server.post('/ITC505/lab-7', (req, res) => {
-    const { noun, verb, adjective, adverb, pluralNoun } = req.body;
+    const { planet, alienName, spaceVehicle, emotion, cosmicItem } = req.body;
     console.log(req.body);
     // Validate if all fields are filled
-    if (!noun || !verb || !adjective || !adverb || !pluralNoun) {
+    if (!planet || !alienName || !spaceVehicle || !emotion || !cosmicItem) {
         res.send(`
             <h1>Submission Failed</h1>
             <p>Please fill out ALL fields.</p>
@@ -38,9 +38,9 @@ server.post('/ITC505/lab-7', (req, res) => {
 
     // Generate the mad lib story
     const madLib = `
-        In a ${adjective} galaxy far beyond, a brave ${noun} embarked on a mission to ${verb} ${adverb}.
-        During their journey, they encountered a mysterious ${pluralNoun} floating in the void,
-        containing ${pluralNoun} that unlocked the secrets of the universe!
+        In a ${planet} galaxy far beyond, a brave ${alienName} embarked on a mission to ${spaceVehicle} ${emotion}.
+        During their journey, they encountered a mysterious ${cosmicItem} floating in the void,
+        containing ${cosmicItem} that unlocked the secrets of the universe!
     `;
 
     // Return the mad lib story as HTML
