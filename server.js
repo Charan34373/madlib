@@ -51,6 +51,6 @@ server.post('/space-adventure/game', (req, res) => {
     res.send(`
         <h1>Space Adventure Story</h1>
         <p>${madLib}</p>
-        <a href="/space-adventure/index.html">Create Another Space Adventure</a>
+        <a href="ITC-505/LAB-7/index.html">Create Another Space Adventure</a>
     `);
 });
